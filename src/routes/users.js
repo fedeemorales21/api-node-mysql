@@ -24,6 +24,17 @@ router.get('/users/:id', (req,res)=>{
     });
 })
 
+router.get('/users/:id/projects', (req,res)=>{
+    const { id } = req.params;
+    conn.query('SELECT * FROM users INNER JOIN projects ON projects.id_user = users.id WHERE users.id = ?',[id], (error, rows, fields)  => {
+        if (!error) {
+            res.json(rows[0])
+        } else {
+            console.log(error)
+        }    
+    });
+})
+
 router.post('/users', (req,res) => {
     const { name,phone,email } = req.params
     conn.query('INSERT INTO users (name,phone,email) VALUES(?,?,?)',[name,phone,email], (error, rows, fields)=> {

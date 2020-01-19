@@ -1,2 +1,1 @@
-# api-node-mysql
-example api
+Example API REST Node and MySQL

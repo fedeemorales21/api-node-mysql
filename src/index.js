@@ -9,6 +9,7 @@ app.use(express.json());
 
 // Routes
 app.use(require('./routes/users.js'));
+app.use(require('./routes/projects.js'));
 
 // Start  server
 app.listen(app.get('port'), () => {
